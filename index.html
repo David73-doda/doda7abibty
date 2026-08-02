@@ -309,11 +309,11 @@ document.getElementById("splashName").innerText=loveName+" 💌";
 document.getElementById("finalName").innerText=loveName;
 
 let music=
-documentElementById("bgMusic");
+document.ElementById("bgMusic");
 
 function enterSite(){
 document.getElementById("splash").style.display="none";
-music.play();
+music.play().catch(() => {});
 }
 
 function toggleMusic(){
