@@ -291,7 +291,6 @@ p{font-size:clamp(1.5rem,6vw,2rem)}
     </p>
 <div class="footer">اتكتب لقلبك وبس 💕</div>
 </div>
-</section>
   
 </section>  
 
@@ -309,10 +308,11 @@ document.getElementById("name3").innerText=loveName;
 document.getElementById("splashName").innerText=loveName+" 💌";
 document.getElementById("finalName").innerText=loveName;
 
-let music=bgMusic;
+let music=
+documentElementById("bgMusic");
 
 function enterSite(){
-splash.style.display="none";
+document.getElementById("splash").style.display="none";
 music.play();
 }
 
@@ -325,49 +325,59 @@ scrollBy({top:innerHeight,behavior:"smooth"});
 }
 
 function updateCounter() {
-  Let now = new Date();
+  let now = new Date();
 
-  Let years = now.getFullYear() – startDate.getFullYear();
-  Let months = now.getMonth() – startDate.getMonth();
+  let years = now.getFullYear() - startDate.getFullYear();
+  let months = now.getMonth() - startDate.getMonth();
 
-  If (now.getDate() < startDate.getDate()) {
-    Months--;
+  if (now.getDate() < startDate.getDate()) {
+    months--;
   }
 
-  If (months < 0) {
-    Years--;
-    Months += 12;
+  if (months < 0) {
+    years--;
+    months += 12;
   }
 
-  Let text = “مع بعض بقالنا ";
+  let text = "مع بعض بقالنا ";
 
-  If (years > 0) {
-    If (years == 1) text += “سنة";
-    Else if (years == 2) text += “سنتين";
-    Else if (years ≤ 10) text += `${years} سنين`;
-    Else text += `${years} سنة`;
+  if (years > 0) {
 
-    If (months > 0) {
-      If (months == 1) text += “ وشهر";
-      Else if (months == 2) text += “ وشهرين";
-      Else if (months ≤ 10) text += ` و${months} شهور`;
-      Else text += ` و${months} شهر`;
+    if (years == 1)
+      text += "سنة";
+    else if (years == 2)
+      text += "سنتين";
+    else if (years <= 10)
+      text += `${years} سنين`;
+    else
+      text += `${years} سنة`;
+
+    if (months > 0) {
+      if (months == 1)
+        text += " وشهر";
+      else if (months == 2)
+        text += " وشهرين";
+      else if (months <= 10)
+        text += ` و${months} شهور`;
+      else
+        text += ` و${months} شهر`;
     }
+
   } else {
-    If (months == 0) {
-      Text += “أقل من شهر ❤️”;
-    } else if (months == 1) {
-      Text += “شهر ❤️”;
-    } else if (months == 2) {
-      Text += “شهرين ❤️”;
-    } else if (months ≤ 10) {
-      Text += `${months} شهور ❤️`;
-    } else {
-      Text += `${months} شهر ❤️`;
-    }
+
+    if (months == 0)
+      text += "أقل من شهر ❤️";
+    else if (months == 1)
+      text += "شهر ❤️";
+    else if (months == 2)
+      text += "شهرين ❤️";
+    else if (months <= 10)
+      text += `${months} شهور ❤️`;
+    else
+      text += `${months} شهر ❤️`;
   }
 
-  Counter.innerText = text;
+  document.getElementById("counter").innerText = text;
 }
 
 updateCounter();
