@@ -282,29 +282,16 @@ p{font-size:clamp(1.5rem,6vw,2rem)}
     <br>
     <button onclick="checkCode()">فتح الرسالة 💌</button>
     <p id="secretMessage" class="hidden" style="margin-top:20px; color:#ffb6c1; font-weight: bold;">
-      عمرى ما حبيت ولا هحب زيك ي بخيتة، <br>
-      عمرى ما هنسى محاولاتك عشانى ولا وقفتك عشانى،<br>
-       محتاجك اتسند عليكى واحط دماغى وانا متطمن، <br> 
+      حبيبتى وست البنات كلهم، <br>
+      عمرى ما هنسى وقفتك عشانى ،<br>
+      ببص ديما للسما وبشكر ربنا على نعمة وجودك
+      وبدعى ربنا من كل قلبى كل يوم اننا نكون سوا ،<br>
+      محتاجك اتسند عليكى واحط دماغى وانا متطمن، <br> 
       انا بحبك وهفضل احاول عشانك .. انتى حد يستاهل كل الحب اللى ف الدنيا    
     </p>
 <div class="footer">اتكتب لقلبك وبس 💕</div>
 </div>
 </section>
-  
-<section>
-  <div class="content calm-end">
-    <h1>يمكن النهاية كانت هنا…</h1>
-    <p>
-      مش كل الحكايات بتكمل…<br>
-      ومش كل اللي بنحبهم بيكملوا معانا.<br><br>
-
-      يمكن الوقت ما كانش في صفنا،<br>
-      أو يمكن فهمنا بعض غلط.<br><br>
-      بس الحقيقة الوحيدة…<br>
-      إنك كنتي أجمل حاجة حصلتلي،<br>
-      حتى لو النهاية ما كانتش زى ما تمنيت.
-    </p>
-  </div>
   
 </section>  
 
@@ -313,8 +300,8 @@ p{font-size:clamp(1.5rem,6vw,2rem)}
 </div>
 
 <script>
-let loveName="بخيتة";
-let startDate=new Date("2024-11-03");
+let loveName="دودا";
+let startDate=new Date("2026-7-20");
 
 document.getElementById("name1").innerText=loveName;
 document.getElementById("name2").innerText=loveName;
@@ -337,12 +324,55 @@ function startStory(){
 scrollBy({top:innerHeight,behavior:"smooth"});
 }
 
-function updateCounter(){
-let days=Math.floor((new Date()-startDate)/(1000*60*60*24));
-counter.innerText=`عدّى ${days} يوم`;
+function updateCounter() {
+  Let now = new Date();
+
+  Let years = now.getFullYear() – startDate.getFullYear();
+  Let months = now.getMonth() – startDate.getMonth();
+
+  If (now.getDate() < startDate.getDate()) {
+    Months--;
+  }
+
+  If (months < 0) {
+    Years--;
+    Months += 12;
+  }
+
+  Let text = “مع بعض بقالنا ";
+
+  If (years > 0) {
+    If (years == 1) text += “سنة";
+    Else if (years == 2) text += “سنتين";
+    Else if (years ≤ 10) text += `${years} سنين`;
+    Else text += `${years} سنة`;
+
+    If (months > 0) {
+      If (months == 1) text += “ وشهر";
+      Else if (months == 2) text += “ وشهرين";
+      Else if (months ≤ 10) text += ` و${months} شهور`;
+      Else text += ` و${months} شهر`;
+    }
+  } else {
+    If (months == 0) {
+      Text += “أقل من شهر ❤️”;
+    } else if (months == 1) {
+      Text += “شهر ❤️”;
+    } else if (months == 2) {
+      Text += “شهرين ❤️”;
+    } else if (months ≤ 10) {
+      Text += `${months} شهور ❤️`;
+    } else {
+      Text += `${months} شهر ❤️`;
+    }
+  }
+
+  Counter.innerText = text;
 }
-setInterval(updateCounter,1000);
+
 updateCounter();
+setInterval(updateCounter, 60000);
+
 
 let observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
@@ -365,14 +395,16 @@ setTimeout(()=>h.remove(),6000);
 let attempts = 0; 
 function checkCode() {
   let code = document.getElementById("secretCode").value;
-  if (code === "15112001") {
+  if (code === "2062003") {
     document.getElementById("secretMessage").classList.remove("hidden");
     document.getElementById("secretMessage").scrollIntoView({behavior: "smooth"});
   } else {
     attempts++;
     if (attempts === 1) alert("الكود مش صح يا ست البنات 😢");
     else if (attempts === 2) alert("لسه مش هو كلمة السر 💌\nجربي تاريخ ميلادك يمكن يكون هو 😉");
-    else if (attempts === 3) alert("مش يمكن يكون كدة 15112001 😉😊");
+    else if (attempts === 3) alert("مش يمكن يكون كدة 2062003 😉😊");
+    else if (attempts === 4) alert("يبنتى اهو 2062003 😉");
+
     else alert("حاولى تانى 🙂");
   }
 }
